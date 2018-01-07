@@ -15,6 +15,15 @@ namespace WpfApp機械時鐘
         public int MinuteAngle { get; private set; }
         public int HourAngle { get; private set; }
 
+        public void SteTime(DateTime time)
+        {
+            this.SecondAngle = time.Second * 360 / 60;
+            this.MinuteAngle = time.Minute * 360 / 60;
+            this.HourAngle = (time.Minute % 12) * 360 / 12;
+
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs)
+        }
+
 
     }
 }
