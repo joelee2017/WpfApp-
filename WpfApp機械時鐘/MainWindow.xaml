@@ -8,14 +8,15 @@
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="350">
+        Title="MainWindow" Height="500" Width="500
+    ">
     <Window.Resources>
         <ResourceDictionary>
             <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
                 <Grid Height="Auto" IsItemsHost="True"/>
             </ItemsPanelTemplate>
             <DataTemplate x:Key="DataTemplate1">
-                <Grid d:DesignWidth="330" d:DesignHeight="320" Width="Auto" RenderTransformOrigin="0.5,0.5">
+                <Grid d:DesignWidth="330" d:DesignHeight="320" RenderTransformOrigin="0.5,0.5" Height="Auto">
                     <Grid.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -24,7 +25,23 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </Grid.RenderTransform>
-                    <Rectangle Fill="#FFF4F4F5" Height="10" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Width="5" Margin="0,10,0,0" RenderTransformOrigin="0.5,0.5"/>
+                    <Rectangle Fill="#FFF4F4F5" Height="10" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Width="5" Margin="0,5,0,0" RenderTransformOrigin="0.5,0.5"/>
+                </Grid>
+            </DataTemplate>
+            <ItemsPanelTemplate x:Key="ItemsPanelTemplate2">
+                <Grid Height="Auto" IsItemsHost="True"/>
+            </ItemsPanelTemplate>
+            <DataTemplate x:Key="DataTemplate2">
+                <Grid d:DesignWidth="330" d:DesignHeight="320" RenderTransformOrigin="0.5,0.5" Height="Auto">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="{Binding Mode=OneWay}"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Rectangle Fill="#FFF30808" Stroke="Black" HorizontalAlignment="Center" Width="5" Height="15" VerticalAlignment="Top" Margin="0,5,0,0" />
                 </Grid>
             </DataTemplate>
             <col:ArrayList x:Key="Angles">
@@ -103,28 +120,13 @@
                 <sys:Int32>300</sys:Int32>
                 <sys:Int32>330</sys:Int32>
             </col:ArrayList>
-            <ItemsPanelTemplate x:Key="ItemsPanelTemplate2">
-                <Grid Height="250" Width="250" VerticalAlignment="Stretch"/>
-            </ItemsPanelTemplate>
-            <DataTemplate x:Key="DataTemplate2">
-                <Grid d:DesignWidth="320" d:DesignHeight="320" RenderTransformOrigin="0.5,0.5">
-                    <Grid.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="{Binding Mode=OneWay}"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Grid.RenderTransform>
-                    <Rectangle Fill="#FFF30808" HorizontalAlignment="Stretch" Height="12" Stroke="Black" VerticalAlignment="Top" Width="8" Margin="0,-25,0,0" RenderTransformOrigin="0.5,0.5"/>
-                </Grid>
-            </DataTemplate>
+           
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <ed:Arc ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="#FFF4F4F5" Stretch="None" Stroke="Black"/>
-        <ItemsControl ItemsPanel="{DynamicResource ItemsPanelTemplate1}" ItemTemplate="{DynamicResource DataTemplate1}" ItemsSource="{Binding Mode=OneWay, Source={StaticResource Angles}}"/>
-        <ItemsControl ItemsPanel="{DynamicResource ItemsPanelTemplate2}" RenderTransformOrigin="0.5,0.5" ItemTemplate="{DynamicResource DataTemplate2}" ItemsSource="{Binding Mode=OneWay, Source={StaticResource Angles2}}">
+        <ed:Arc ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="#FFF4F4F5" Stretch="None" Stroke="Black" Width="350" Height="350" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ItemsControl ItemsPanel="{DynamicResource ItemsPanelTemplate1}" ItemTemplate="{DynamicResource DataTemplate1}" ItemsSource="{Binding Mode=OneWay, Source={StaticResource Angles}}" Width="350" Height="350"/>
+        <ItemsControl ItemsPanel="{DynamicResource ItemsPanelTemplate2}"  ItemTemplate="{DynamicResource DataTemplate2}" ItemsSource="{Binding Mode=OneWay, Source={StaticResource Angles2}}" Width="350" Height="350">
             <ItemsControl.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -134,14 +136,38 @@
                 </TransformGroup>
             </ItemsControl.RenderTransform>
         </ItemsControl>
-        <Grid HorizontalAlignment="Center" Width="5" VerticalAlignment="Center" Height="35">
-            <Ellipse Fill="#FFD61616" Height="162.5" Stroke="Black" VerticalAlignment="Bottom" Margin="0,-127.5,0,0"/>
+        <Grid HorizontalAlignment="Center" Width="5" VerticalAlignment="Center" Height="35" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="{Binding SecondAngle , Mode=OneWay}"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Ellipse Fill="#FFD61616" Height="162.5" Stroke="Black" VerticalAlignment="Bottom" Margin="0,-127.5,0,0" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
-        <Grid HorizontalAlignment="Center" Width="5" VerticalAlignment="Center" Height="35">
-            <Ellipse Fill="#FF3C64AA" Height="140" Stroke="Black" VerticalAlignment="Bottom" Margin="0,-127.5,0,0" Width="10" HorizontalAlignment="Center"/>
+        <Grid HorizontalAlignment="Center" Width="5" VerticalAlignment="Center" Height="35" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="{Binding MinuteAngle, Mode=OneWay}"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Ellipse Fill="#FF3C64AA" Height="140" Stroke="Black" VerticalAlignment="Bottom" Margin="0,-127.5,0,0" Width="10" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
-        <Grid HorizontalAlignment="Center" Width="5" VerticalAlignment="Center" Height="35" Margin="168.5,142.5">
-            <Ellipse Fill="#FF17FF00" Height="100" Stroke="Black" VerticalAlignment="Bottom" Margin="0,-127.5,0,0" Width="10" HorizontalAlignment="Center"/>
+        <Grid HorizontalAlignment="Center" Width="5" VerticalAlignment="Center" Height="35" Margin="168.5,142.5" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="{Binding HourAngle, Mode=OneWay}"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Ellipse Fill="#FF17FF00" Height="100" Stroke="Black" VerticalAlignment="Bottom" Margin="0,-127.5,0,0" Width="10" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
     </Grid>
 </Window>

@@ -19,10 +19,11 @@ namespace WpfApp機械時鐘
         {
             this.SecondAngle = time.Second * 360 / 60;
             this.MinuteAngle = time.Minute * 360 / 60;
-            this.HourAngle = (time.Minute % 12) * 360 / 12;
+            this.HourAngle = (time.Hour % 12) * 360 / 12;
 
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.SecondAngle)));
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.MinuteAngle)));
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.HourAngle)));
         }
 
 
