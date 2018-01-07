@@ -1,0 +1,147 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp機械時鐘"
+        xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="WpfApp機械時鐘.MainWindow"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="350">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+                <Grid Height="Auto" IsItemsHost="True"/>
+            </ItemsPanelTemplate>
+            <DataTemplate x:Key="DataTemplate1">
+                <Grid d:DesignWidth="330" d:DesignHeight="320" Width="Auto" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="{Binding Mode=OneWay}"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Rectangle Fill="#FFF4F4F5" Height="10" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Width="5" Margin="0,10,0,0" RenderTransformOrigin="0.5,0.5"/>
+                </Grid>
+            </DataTemplate>
+            <col:ArrayList x:Key="Angles">
+                <sys:Int32>0</sys:Int32>
+                <sys:Int32>6</sys:Int32>
+                <sys:Int32>12</sys:Int32>
+                <sys:Int32>18</sys:Int32>
+                <sys:Int32>24</sys:Int32>
+                <sys:Int32>30</sys:Int32>
+                <sys:Int32>36</sys:Int32>
+                <sys:Int32>42</sys:Int32>
+                <sys:Int32>48</sys:Int32>
+                <sys:Int32>54</sys:Int32>
+                <sys:Int32>60</sys:Int32>
+                <sys:Int32>66</sys:Int32>
+                <sys:Int32>72</sys:Int32>
+                <sys:Int32>78</sys:Int32>
+                <sys:Int32>84</sys:Int32>
+                <sys:Int32>90</sys:Int32>
+                <sys:Int32>96</sys:Int32>
+                <sys:Int32>102</sys:Int32>
+                <sys:Int32>108</sys:Int32>
+                <sys:Int32>114</sys:Int32>
+                <sys:Int32>120</sys:Int32>
+                <sys:Int32>126</sys:Int32>
+                <sys:Int32>132</sys:Int32>
+                <sys:Int32>138</sys:Int32>
+                <sys:Int32>144</sys:Int32>
+                <sys:Int32>150</sys:Int32>
+                <sys:Int32>156</sys:Int32>
+                <sys:Int32>162</sys:Int32>
+                <sys:Int32>168</sys:Int32>
+                <sys:Int32>174</sys:Int32>
+                <sys:Int32>180</sys:Int32>
+                <sys:Int32>186</sys:Int32>
+                <sys:Int32>192</sys:Int32>
+                <sys:Int32>198</sys:Int32>
+                <sys:Int32>204</sys:Int32>
+                <sys:Int32>210</sys:Int32>
+                <sys:Int32>216</sys:Int32>
+                <sys:Int32>222</sys:Int32>
+                <sys:Int32>228</sys:Int32>
+                <sys:Int32>234</sys:Int32>
+                <sys:Int32>240</sys:Int32>
+                <sys:Int32>246</sys:Int32>
+                <sys:Int32>252</sys:Int32>
+                <sys:Int32>258</sys:Int32>
+                <sys:Int32>264</sys:Int32>
+                <sys:Int32>270</sys:Int32>
+                <sys:Int32>276</sys:Int32>
+                <sys:Int32>282</sys:Int32>
+                <sys:Int32>288</sys:Int32>
+                <sys:Int32>294</sys:Int32>
+                <sys:Int32>300</sys:Int32>
+                <sys:Int32>306</sys:Int32>
+                <sys:Int32>312</sys:Int32>
+                <sys:Int32>318</sys:Int32>
+                <sys:Int32>324</sys:Int32>
+                <sys:Int32>330</sys:Int32>
+                <sys:Int32>336</sys:Int32>
+                <sys:Int32>342</sys:Int32>
+                <sys:Int32>348</sys:Int32>
+                <sys:Int32>354</sys:Int32>
+            </col:ArrayList>
+            <col:ArrayList x:Key="Angles2">
+                <sys:Int32>0</sys:Int32>
+                <sys:Int32>30</sys:Int32>
+                <sys:Int32>60</sys:Int32>
+                <sys:Int32>90</sys:Int32>
+                <sys:Int32>120</sys:Int32>
+                <sys:Int32>150</sys:Int32>
+                <sys:Int32>180</sys:Int32>
+                <sys:Int32>210</sys:Int32>
+                <sys:Int32>240</sys:Int32>
+                <sys:Int32>270</sys:Int32>
+                <sys:Int32>300</sys:Int32>
+                <sys:Int32>330</sys:Int32>
+            </col:ArrayList>
+            <ItemsPanelTemplate x:Key="ItemsPanelTemplate2">
+                <Grid Height="250" Width="250" VerticalAlignment="Stretch"/>
+            </ItemsPanelTemplate>
+            <DataTemplate x:Key="DataTemplate2">
+                <Grid d:DesignWidth="320" d:DesignHeight="320" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="{Binding Mode=OneWay}"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Rectangle Fill="#FFF30808" HorizontalAlignment="Stretch" Height="12" Stroke="Black" VerticalAlignment="Top" Width="8" Margin="0,-25,0,0" RenderTransformOrigin="0.5,0.5"/>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <ed:Arc ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="#FFF4F4F5" Stretch="None" Stroke="Black"/>
+        <ItemsControl ItemsPanel="{DynamicResource ItemsPanelTemplate1}" ItemTemplate="{DynamicResource DataTemplate1}" ItemsSource="{Binding Mode=OneWay, Source={StaticResource Angles}}"/>
+        <ItemsControl ItemsPanel="{DynamicResource ItemsPanelTemplate2}" RenderTransformOrigin="0.5,0.5" ItemTemplate="{DynamicResource DataTemplate2}" ItemsSource="{Binding Mode=OneWay, Source={StaticResource Angles2}}">
+            <ItemsControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="{Binding Mode=OneWay, Source={StaticResource Angles2}}"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ItemsControl.RenderTransform>
+        </ItemsControl>
+        <Grid HorizontalAlignment="Center" Width="5" VerticalAlignment="Center" Height="35">
+            <Ellipse Fill="#FFD61616" Height="162.5" Stroke="Black" VerticalAlignment="Bottom" Margin="0,-127.5,0,0"/>
+        </Grid>
+        <Grid HorizontalAlignment="Center" Width="5" VerticalAlignment="Center" Height="35">
+            <Ellipse Fill="#FF3C64AA" Height="140" Stroke="Black" VerticalAlignment="Bottom" Margin="0,-127.5,0,0" Width="10" HorizontalAlignment="Center"/>
+        </Grid>
+        <Grid HorizontalAlignment="Center" Width="5" VerticalAlignment="Center" Height="35" Margin="168.5,142.5">
+            <Ellipse Fill="#FF17FF00" Height="100" Stroke="Black" VerticalAlignment="Bottom" Margin="0,-127.5,0,0" Width="10" HorizontalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>
